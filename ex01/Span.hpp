@@ -6,12 +6,13 @@
 /*   By: ldesboui <ldesboui@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 18:00:52 by ldesboui          #+#    #+#             */
-/*   Updated: 2026/04/30 19:04:41 by ldesboui         ###   ########.fr       */
+/*   Updated: 2026/04/30 20:19:01 by ldesboui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #pragma once
 #include <algorithm>
 #include <iostream>
+#include <vector>
 
 class Span
 {
@@ -29,4 +30,5 @@ public:
 	unsigned int	shortestSpan();
 	unsigned int	longestSpan();
 	void			addNumber(int nb);
+	void			addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 };

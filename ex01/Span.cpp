@@ -6,7 +6,7 @@
 /*   By: ldesboui <ldesboui@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 19:10:49 by ldesboui          #+#    #+#             */
-/*   Updated: 2026/04/30 19:16:29 by ldesboui         ###   ########.fr       */
+/*   Updated: 2026/04/30 20:29:28 by ldesboui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ Span& Span::operator=(const Span& aSpan)
 	delete []values;
 	this->size = aSpan.size;
 	this->values = new int[this->size]();
+	index = aSpan.index;
 	for (unsigned int i = 0; i < this->index; ++i)
 	{
 		this->values[i] = aSpan.values[i];
 	}
-	index = aSpan.index;
 	return (*this);
 }
 
@@ -92,3 +92,15 @@ void Span::addNumber(int nb)
 	index += 1;
 }
 
+void	Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+{
+	int dist = std::distance(begin, end);
+	if (this->index + dist > size)
+		throw std::exception();
+	while (begin != end)
+	{
+		this->values[index] = *begin;
+		begin++;
+		index++;
+	}
+}

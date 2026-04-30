@@ -6,7 +6,7 @@
 /*   By: ldesboui <ldesboui@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 19:03:38 by ldesboui          #+#    #+#             */
-/*   Updated: 2026/04/30 19:34:56 by ldesboui         ###   ########.fr       */
+/*   Updated: 2026/04/30 20:26:16 by ldesboui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "Span.hpp"
@@ -25,16 +25,24 @@ int main()
 
 
 	std::cout << "my-test" << std::endl;
+	std::vector<int> vect;
+	for (int i = 0; i < 19997; ++i)
+		vect.push_back(i + 1);
 	Span spa = Span(20000);
 	spa.addNumber(1);
 	spa.addNumber(3);
 	spa.addNumber(10000000);
-	for (int i = 0; i < 19997; ++i)
-		spa.addNumber(i + 1);
+	spa.addNumber(vect.begin(), vect.end());
 	std::cout << spa.shortestSpan() << std::endl;
 	std::cout << spa.longestSpan() << std::endl;
 	try{
 		spa.addNumber(1);
+	}catch(std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	try{
+		spa.addNumber(vect.begin(), vect.end());
 	}catch(std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
