@@ -6,7 +6,7 @@
 /*   By: ldesboui <ldesboui@42angouleme.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 17:31:06 by ldesboui          #+#    #+#             */
-/*   Updated: 2026/04/30 17:46:50 by ldesboui         ###   ########.fr       */
+/*   Updated: 2026/05/20 22:16:34 by ldesboui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "easyfind.hpp"
@@ -23,5 +23,6 @@ int	main(void)
 	std::vector<int>::iterator iter = easyfind(Tab, 3);
 	std::cout << *iter << std::endl;
 	std::cout << *(++iter) << std::endl;
-	std::cout << *(++iter) << std::endl;
+	std::cout << *(--iter) << std::endl;
+	std::cout << *(--iter) << std::endl;
 }
